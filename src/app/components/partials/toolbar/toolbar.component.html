@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <div class="divide-column">
+    <div class="item-img">
+      <img src="assets/logo.png" style= "width:50px ; height:50px;"/>
+    </div>
+
+    <div class="item-txt">
+      <a routerLink="/home">Home</a>
+      <a [matMenuTriggerFor]="menu">Predict</a>
+      <a routerLink="/about-us">About Us</a>
+      <a routerLink="/contact">Contact</a>
+    </div>
+  </div>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="showPredictApartment()">
+    <mat-icon>home</mat-icon>
+    <span>Apartment</span>
+  </button>
+  <button mat-menu-item (click)="showPredictHouse()">
+    <mat-icon>view_module</mat-icon>
+    <span>House</span>
+  </button>
+  <button mat-menu-item (click)="showPredictLand()">
+    <mat-icon>aspect_ratio</mat-icon>
+    <span>Land</span>
+  </button>
+</mat-menu>

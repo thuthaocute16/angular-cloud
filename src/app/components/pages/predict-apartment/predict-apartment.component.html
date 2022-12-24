@@ -1,0 +1,279 @@
+<div class="body" id="style-13">
+
+  <div class="img-back">
+    <img
+      src="https://lp-cms-production.imgix.net/2019-06/84631981.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4"
+      alt="">
+  </div>
+
+  <div class="text-category">
+    <p class="text">Predict Apartment Price in HCM City</p>
+  </div>
+
+  <div class="view-sample">
+    <div class="container">
+      <div class="body-item">
+        <h1 translate="Predict"></h1>
+
+        <form [formGroup]="predictForm" (ngSubmit)="submit()">
+
+          <label for="nameProjectL" style="margin-top: 20px;margin-bottom: 20px;">Name Project</label>
+          <div class="select-box" style="margin-left: 20px;margin-right: 45px;">
+            <div class="select-box__current" tabindex="1" (click)="show_list_4()">
+
+              <div class="select-box__value" *ngFor="let item of getProject()">
+                <input class="select-box__input" type="radio" [id]="item.id" [value]="item.Name" formControlName="nameProject" >
+                <p class="select-box__input-text">{{item.Name}}</p>
+              </div>
+
+              <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+                aria-hidden="true" />
+            </div>
+            <ul class="select-box__list" *ngIf="show_menu_4 === true">
+              <li *ngFor="let item of getProject()">
+                <label class="select-box__option" [for]="item.id" aria-hidden="aria-hidden">{{item.Name}}</label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-1">
+
+            <label for="year">Year</label>
+            <div class="text-input">
+              <span class="fa-solid fa-calendar-days"></span>
+              <input type="month" id="year" formControlName="year" placeholder="Year">
+            </div>
+
+            <label for="district_1">District</label>
+            <div class="select-box">
+              <div class="select-box__current" tabindex="1" (click)="show_list()">
+                <div class="select-box__value" *ngFor="let dis of data">
+                  <input class="select-box__input" type="radio" [id]="dis.id" [value]="dis.Name" formControlName="district" />
+                  <p class="select-box__input-text">{{dis.Name}}</p>
+                </div>
+                <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+                  aria-hidden="true" />
+              </div>
+              <ul class="select-box__list" *ngIf="show_menu === true">
+                <li *ngFor="let dis of data">
+                  <label class="select-box__option" [for]="dis.id" aria-hidden="aria-hidden">{{dis.Name}}</label>
+                </li>
+              </ul>
+            </div>
+
+
+            <label for="wards_1">Wards</label>
+            <div class="select-box">
+              <div class="select-box__current" tabindex="1" (click)="show_list_1()">
+                <div class="select-box__value" *ngFor="let ward of getWard()">
+                  <input class="select-box__input" type="radio" [id]="ward.id" [value]="ward.Name" formControlName="wards" />
+                  <p class="select-box__input-text">{{ward.Name}}</p>
+                </div>
+                <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+                  aria-hidden="true" />
+              </div>
+              <ul class="select-box__list" *ngIf="show_menu_1 === true">
+                <li *ngFor="let ward of getWard()">
+                  <label class="select-box__option" [for]="ward.id" aria-hidden="aria-hidden">{{ward.Name}}</label>
+                </li>
+              </ul>
+            </div>
+
+            <label for="Street">Street</label>
+            <div class="text-input">
+              <span class="fa-solid fa-road"></span>
+              <input type="text" id="Street" formControlName="street" class="form-control" placeholder="Street">
+            </div>
+
+            <label for="Bedroom">Bedroom</label>
+            <div class="text-input">
+              <span class="fa-brands fa-buromobelexperte"></span>
+              <input type="text" id="Bedroom" formControlName="bedroom" class="form-control" placeholder="Bedroom">
+            </div>
+
+            <label for="Legal_1">Legal</label>
+            <div class="select-box">
+              <div class="select-box__current" tabindex="1" (click)="show_list_3()">
+
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="L1" value="Sổ đỏ/Sổ hồng" formControlName="legal"/>
+                  <p class="select-box__input-text">Sổ đỏ/Sổ hồng</p>
+                </div>
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="L2" value="Hợp đồng mua bán" formControlName="legal" />
+                  <p class="select-box__input-text">Hợp đồng mua bán</p>
+                </div>
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="L3" value="Đang chờ sổ" formControlName="legal" />
+                  <p class="select-box__input-text">Đang chờ sổ</p>
+                </div>
+
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="L4" value="Không xác định" formControlName="legal" />
+                  <p class="select-box__input-text">Không xác định</p>
+                </div>
+
+                <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+                  aria-hidden="true" />
+              </div>
+              <ul class="select-box__list" *ngIf="show_menu_3 === true">
+                <li>
+                  <label class="select-box__option" for="L1" aria-hidden="aria-hidden">Sổ đỏ/Sổ hồng</label>
+                </li>
+                <li>
+                  <label class="select-box__option" for="L2" aria-hidden="aria-hidden">Hợp đồng mua bán</label>
+                </li>
+                <li>
+                  <label class="select-box__option" for="L3" aria-hidden="aria-hidden">Đang chờ sổ</label>
+                </li>
+                <li>
+                  <label class="select-box__option" for="L4" aria-hidden="aria-hidden">Không xác định</label>
+                </li>
+              </ul>
+            </div>
+
+            <mat-form-field class="example-chip-list" appearance="fill">
+              <mat-label>Choose view</mat-label>
+              <mat-chip-list #chipList aria-label="View selection">
+                <mat-chip
+                  *ngFor="let view of view"
+                  (removed)="remove(view)">
+                  {{view}}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+                <input
+                  placeholder="New view..."
+                  #fruitInput
+                  [formControl]="fruitCtrl"
+                  [matAutocomplete]="auto"
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="add($event)">
+              </mat-chip-list>
+
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                  {{fruit}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+
+          <div class="col-1">
+            <label for="Area">Area</label>
+            <div class="text-input">
+              <span class="fa-solid fa-layer-group"></span>
+              <input type="number" id="Area" formControlName="area" class="form-control" placeholder="Area">
+            </div>
+
+            <label for="h-o">Home Orentation</label>
+            <div class="text-input">
+              <span class="fa-solid fa-location-arrow"></span>
+              <input type="text" id="h-o" formControlName="home_orentation" class="form-control"  placeholder="Home Orentation">
+            </div>
+
+            <label for="bo">Balony Orentation</label>
+            <div class="text-input">
+              <span class="fa-solid fa-location-arrow"></span>
+              <input type="text" id="bo" formControlName="balony_orentation" class="form-control"  placeholder="Balony Orentation">
+            </div>
+
+            <label for="Floor">Floor</label>
+            <div class="text-input">
+              <span class="fa-solid fa-house-flood-water"></span>
+              <input type="number" id="Floor" formControlName="floor" class="form-control" placeholder="Floor">
+            </div>
+
+            <label for="toilet">Toilet</label>
+            <div class="text-input">
+              <span class="fa-solid fa-toilet"></span>
+              <input type="number" formControlName="toilet" class="form-control" placeholder="Toilet">
+            </div>
+
+            <label for="Furniture_1">Furniture</label>
+            <div class="select-box">
+              <div class="select-box__current" tabindex="1" (click)="show_list_2()">
+
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="F1" value="Đầy đủ" formControlName="furniture"/>
+                  <p class="select-box__input-text">Đầy đủ</p>
+                </div>
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="F2" value="Cơ bản" formControlName="furniture" />
+                  <p class="select-box__input-text">Cơ bản</p>
+                </div>
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="F3" value="Trống" formControlName="furniture" />
+                  <p class="select-box__input-text">Trống</p>
+                </div>
+
+                <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+                  aria-hidden="true" />
+              </div>
+              <ul class="select-box__list" *ngIf="show_menu_2 === true">
+                <li>
+                  <label class="select-box__option" for="F1" aria-hidden="aria-hidden">Đầy đủ</label>
+                </li>
+                <li>
+                  <label class="select-box__option" for="F2" aria-hidden="aria-hidden">Cơ bản</label>
+                </li>
+                <li>
+                  <label class="select-box__option" for="F3" aria-hidden="aria-hidden">Trống</label>
+                </li>
+              </ul>
+            </div>
+
+            <mat-form-field class="example-chip-list" appearance="fill">
+              <mat-label>Choose Special</mat-label>
+              <mat-chip-list #chipList_1 aria-label="View selection">
+                <mat-chip
+                  *ngFor="let spe of special"
+                  (removed)="remove_1(spe)">
+                  {{spe}}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+                <input
+                  placeholder="New special..."
+                  #specailInput
+                  [formControl]="fruitCtrl_1"
+                  [matAutocomplete]="auto_1"
+                  [matChipInputFor]="chipList_1"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes_1"
+                  (matChipInputTokenEnd)="add_1($event)">
+              </mat-chip-list>
+
+              <mat-autocomplete #auto_1="matAutocomplete" (optionSelected)="selected_1($event)">
+                <mat-option *ngFor="let fruit of filteredFruits_1 | async" [value]="fruit">
+                  {{fruit}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+
+          </div>
+
+          <div class="text-input-b" style="margin-bottom: 30px;">
+            <button class="button-33" type="submit"> Predict </button>
+          </div>
+        </form>
+
+        <div *ngIf="RESULT" class="show-result">
+          <div class="img">
+            <p>
+              <i class="fa-solid fa-money-bill-wheat"></i>
+            </p>
+          </div>
+          <div class="img">
+            <span>Result predict</span>
+            <span>{{RESULT}} Tỷ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

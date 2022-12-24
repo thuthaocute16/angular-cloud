@@ -1,0 +1,43 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar{
+  background-color: #1d3557;
+}
+
+.divide-column {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-img {
+  width: 25%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.item-img img {
+  margin-left: 50px;
+}
+
+.item-txt {
+  width: 75%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-txt a {
+  text-decoration: none;
+  color: whitesmoke;
+
+  margin-right: 50px;
+  font-weight: 200;
+  font-size: 18px;
+}
